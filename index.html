@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GarbaBox — Le vrai garba à Vienne | Cuisine ivoirienne livrée</title>
+  <meta name="description" content="Garba authentique d'Abidjan livré gratuitement à Vienne. Attiéké, thon braisé, foutou. Commande sur WhatsApp.">
+  <meta name="theme-color" content="#1A120B">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GarbaBox — Le vrai garba à Vienne">
+  <meta property="og:description" content="Garba authentique d'Abidjan livré gratuitement à Vienne. Commande sur WhatsApp.">
+  <meta property="og:type" content="restaurant.restaurant">
+
+  <!-- Flag Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css" crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #1A120B;
+      --bg-elevated: #241810;
+      --surface: #3D2817;
+      --primary: #F4C430;
+      --primary-bright: #FFD645;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1FAE54;
+      --accent: #C44536;
+      --text: #F5E9D7;
+      --text-muted: #A89684;
+      --border: rgba(245, 233, 215, 0.08);
+
+      --font-display: 'Archivo Black', 'Impact', sans-serif;
+      --font-title: 'Fraunces', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Texture noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: overlay;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 1.5rem;
+      background: rgba(26, 18, 11, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 0.15rem;
+    }
+
+    .logo .garba { color: var(--primary); }
+    .logo .box {
+      background: var(--text);
+      color: var(--bg);
+      padding: 0 0.3rem;
+      border-radius: 2px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--surface);
+      padding: 0.25rem;
+      border-radius: 999px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 200ms ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.active {
+      background: var(--primary);
+      color: var(--bg);
+    }
+
+    .lang-btn .fi {
+      width: 1.1em;
+      height: 0.8em;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 0.15em;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh; /* iOS Safari : exclut la barre d'adresse */
+      padding: 7rem 1.5rem 3rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(244, 196, 48, 0.12), transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(196, 69, 54, 0.08), transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      right: -5%;
+      width: 60%;
+      height: 80%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0%25' stop-color='%23F4C430' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23F4C430' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='90' fill='url(%23g)'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.36rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(244, 196, 48, 0.3);
+      border-radius: 999px;
+      width: fit-content;
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s ease-out 0.1s both;
+    }
+
+    .hero-title .accent {
+      color: var(--primary);
+      font-style: italic;
+      font-family: var(--font-title);
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-title);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      line-height: 1.5;
+      animation: fadeUp 0.7s ease-out 0.2s both;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: fadeUp 0.7s ease-out 0.3s both;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: var(--whatsapp);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      padding: 1.125rem 2rem;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 200ms ease;
+      width: fit-content;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp svg { width: 22px; height: 22px; }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .hero-meta-item:first-child::before { display: none; }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      max-width: 560px;
+      margin-left: auto;
+      animation: fadeUp 0.9s ease-out 0.2s both;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      transform: rotate(2deg);
+      box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(244, 196, 48, 0.12),
+        0 0 60px rgba(244, 196, 48, 0.08);
+      transition: transform 400ms ease, box-shadow 400ms ease;
+    }
+
+    .hero-img-wrap:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow:
+        0 50px 100px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(244, 196, 48, 0.2),
+        0 0 80px rgba(244, 196, 48, 0.12);
+    }
+
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.92) saturate(1.15) contrast(1.05);
+    }
+
+    /* Gradient overlay bas → haut */
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 45%;
+      background: linear-gradient(
+        to top,
+        rgba(26, 18, 11, 0.7) 0%,
+        rgba(26, 18, 11, 0.3) 60%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Liseré doré */
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      border: 1.5px solid rgba(244, 196, 48, 0.25);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      position: absolute;
+      background: var(--primary);
+      color: var(--bg);
+      padding: 0.875rem 1.5rem;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(244, 196, 48, 0.3);
+      transform: rotate(-8deg);
+      z-index: 3;
+    }
+
+    .hero-badge-1 { top: 8%; left: -5%; }
+    .hero-badge-2 {
+      bottom: 12%;
+      right: -8%;
+      transform: rotate(6deg);
+      background: var(--accent);
+      color: var(--text);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTION GÉNÉRIQUE ===== */
+    section { position: relative; z-index: 2; }
+
+    .section {
+      padding: 6rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title .accent {
+      color: var(--primary);
+      font-family: var(--font-title);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    /* ===== MENU CARDS ===== */
+    .menu-section {
+      background: linear-gradient(180deg, transparent, var(--bg-elevated) 30%, var(--bg-elevated) 70%, transparent);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background: var(--surface);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 300ms ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      border-color: rgba(244, 196, 48, 0.2);
+    }
+
+    .menu-card-image {
+      aspect-ratio: 4 / 3;
+      position: relative;
+      overflow: hidden;
+      background: #2a1810;
+    }
+
+    .menu-card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      transition: transform 400ms ease, filter 400ms ease;
+      filter: brightness(0.88) saturate(1.1);
+    }
+
+    .menu-card:hover .menu-card-photo {
+      transform: scale(1.06);
+      filter: brightness(0.96) saturate(1.2);
+    }
+
+    .menu-card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(26,18,11,0.75) 100%);
+      z-index: 1;
+    }
+
+    .menu-card-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      z-index: 3;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .menu-card-tag.spicy { color: var(--accent); }
+
+    .menu-card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .menu-card-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+
+    .menu-card-price {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-style: italic;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .menu-card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .menu-card-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--whatsapp);
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.875rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 200ms ease;
+      margin-top: auto;
+    }
+
+    .menu-card-cta:hover { background: var(--whatsapp-dark); }
+    .menu-card-cta svg { width: 18px; height: 18px; }
+
+    .menu-footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .menu-footer span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ===== POURQUOI ===== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .why-item { text-align: center; }
+
+    .why-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .why-icon-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 30%;
+      margin: 0 auto 1.5rem;
+      display: block;
+      border: 2px solid rgba(244, 196, 48, 0.35);
+      box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.45),
+        0 0 0 4px rgba(244, 196, 48, 0.08);
+      filter: brightness(0.95) saturate(1.1);
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .why-item:hover .why-icon-img {
+      transform: scale(1.06);
+      box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.5),
+        0 0 0 4px rgba(244, 196, 48, 0.18);
+    }
+
+    .why-title {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.375rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .why-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-section { background: var(--bg-elevated); }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    .how-step {
+      text-align: center;
+      position: relative;
+      padding: 2rem 1.5rem;
+    }
+
+    .how-step-number {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--primary);
+      opacity: 0.2;
+      margin-bottom: 1rem;
+    }
+
+    .how-step-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .how-step-desc {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .how-cta-wrap {
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+
+    /* ===== DELIVERY ===== */
+    .delivery-section { text-align: center; }
+
+    .delivery-zones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .zone-pill {
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.5rem 0.875rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: all 200ms ease;
+    }
+
+    .zone-pill:hover {
+      background: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+
+    .delivery-note {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-section { background: var(--bg-elevated); }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font-title);
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-align: left;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color 200ms;
+    }
+
+    .faq-question:hover { color: var(--primary); }
+
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 300ms;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .faq-item.open .faq-toggle {
+      background: var(--primary);
+      color: var(--bg);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 400ms ease;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .faq-answer-inner { padding: 0 0 1.5rem 0; }
+
+    .faq-item.open .faq-answer { max-height: 200px; }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      padding: 8rem 1.5rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 50%, rgba(244, 196, 48, 0.08), transparent 60%);
+    }
+
+    .final-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta-title .accent {
+      color: var(--primary);
+      font-family: var(--font-title);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .final-cta-subtitle {
+      font-family: var(--font-title);
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .btn-whatsapp {
+      margin: 0 auto;
+      font-size: 1.125rem;
+      padding: 1.25rem 2.5rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-brand .logo {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      font-family: var(--font-title);
+      font-style: italic;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: right;
+    }
+
+    .footer-contact a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 200ms;
+      font-weight: 500;
+    }
+
+    .footer-contact a:hover { color: var(--primary); }
+
+    .footer-meta {
+      grid-column: 1 / -1;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ===== FLOATING WHATSAPP ===== */
+    .float-wa {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 99;
+      transition: all 200ms ease;
+      text-decoration: none;
+    }
+
+    .float-wa::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      opacity: 0.4;
+      animation: ping 2s infinite;
+      z-index: -1;
+    }
+
+    @keyframes ping {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    .float-wa:hover {
+      transform: scale(1.1);
+      background: var(--whatsapp-dark);
+    }
+
+    .float-wa svg { width: 32px; height: 32px; color: white; }
+
+    /* ===== RESPONSIVE — BREAKPOINTS STRUCTURÉS ===== */
+
+    /* ─── ≤ 1023px : tablettes portrait + petits écrans ──────────────────── */
+    @media (max-width: 1023px) {
+      .hero { min-height: auto; padding: 6.5rem 1.5rem 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { max-width: 560px; margin: 0 auto; }
+      .hero-badge-1 { left: -2%; font-size: 0.8rem; padding: 0.75rem 1.1rem; }
+      .hero-badge-2 { right: -2%; font-size: 0.8rem; padding: 0.75rem 1.1rem; }
+      .hero-img-wrap { transform: rotate(1.5deg); }
+
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+      .how-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    /* ─── ≤ 767px : tablettes portrait ──────────────────────────────────── */
+    @media (max-width: 767px) {
+      .hero { padding: 6rem 1.25rem 2.5rem; }
+      .hero-visual { max-width: 480px; }
+      .hero-badge-1 { left: 0.5rem; top: -1.25rem; transform: rotate(-5deg); font-size: 0.75rem; padding: 0.6rem 1rem; }
+      .hero-badge-2 { right: 0.5rem; bottom: 0.75rem; transform: rotate(3deg); font-size: 0.75rem; padding: 0.6rem 1rem; }
+      .hero-img-wrap { transform: rotate(1deg); }
+
+      .why-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .how-grid { grid-template-columns: 1fr; gap: 0; }
+      .how-step { padding: 1.5rem; }
+      .how-step-number { font-size: 4rem; }
+
+      .section { padding: 4rem 1.25rem; }
+      .section-header { margin-bottom: 2.75rem; }
+
+      .menu-footer { flex-direction: column; align-items: center; gap: 0.75rem; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-contact { text-align: left; }
+      .footer-meta { flex-direction: column; text-align: center; gap: 0.5rem; }
+    }
+
+    /* ─── ≤ 639px : mobile ────────────────────────────────────────────────── */
+    @media (max-width: 639px) {
+      /* Header */
+      .header { padding: 0.875rem 1rem; }
+      .logo { font-size: 1.25rem; }
+      .lang-btn { padding: 0.55rem 0.6rem; font-size: 0.68rem; min-height: 44px; }
+
+      /* Hero */
+      .hero { padding: 5.5rem 1rem 2.5rem; }
+      .hero-inner { gap: 1.75rem; }
+      .hero-title { font-size: clamp(2rem, 9.5vw, 3rem); margin-bottom: 1rem; }
+      .hero-subtitle { font-size: clamp(0.95rem, 3.5vw, 1.1rem); max-width: 100%; margin-bottom: 1.75rem; }
+      .hero-eyebrow { font-size: 0.36rem; padding: 0.4rem 0.85rem; margin-bottom: 1rem; }
+      .hero-visual { max-width: 100%; }
+      .hero-img-wrap { transform: none; border-radius: 18px; }
+      .hero-img-wrap:hover { transform: scale(1.01); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      .hero-badge-1 { left: 0.5rem; top: -1rem; font-size: 0.68rem; padding: 0.45rem 0.75rem; transform: rotate(-4deg); }
+      .hero-badge-2 { right: 0.5rem; bottom: 0.6rem; font-size: 0.68rem; padding: 0.45rem 0.75rem; transform: rotate(2deg); }
+
+      /* CTA pleine largeur sur mobile → meilleure cible tactile */
+      .btn-whatsapp { width: 100%; justify-content: center; font-size: 1rem; padding: 1rem 1.5rem; min-height: 52px; }
+      .hero-meta { flex-direction: column; align-items: flex-start; gap: 0.35rem; font-size: 0.78rem; }
+      .hero-meta-item::before { display: none; }
+
+      /* Sections */
+      .section { padding: 3rem 1rem; }
+      .section-header { margin-bottom: 2rem; }
+      .section-title { font-size: clamp(1.6rem, 7vw, 2.25rem); }
+
+      /* Menu */
+      .menu-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .menu-card-body { padding: 1.1rem; }
+      .menu-card-name { font-size: 1.15rem; }
+      .menu-card-price { font-size: 1.6rem; }
+      .menu-card-cta { min-height: 48px; font-size: 1rem; padding: 1rem; }
+      .menu-footer { font-size: 0.85rem; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+
+      /* How */
+      .how-step { padding: 1.25rem 1rem; }
+      .how-step-number { font-size: 3.5rem; margin-bottom: 0.5rem; }
+      .how-step-title { font-size: 1.2rem; }
+      .how-cta-wrap { margin-top: 2rem; }
+      .how-cta-wrap .btn-whatsapp { display: flex; width: 100%; }
+
+      /* Delivery — tap targets ≥ 44px */
+      .zone-pill { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+
+      /* FAQ — tap targets + overflow pour texte long (DE) */
+      .faq-question { font-size: 0.95rem; padding: 1.125rem 0; min-height: 44px; }
+      .faq-toggle { width: 32px; height: 32px; min-width: 32px; font-size: 1rem; }
+      .faq-item.open .faq-answer { max-height: 500px; }
+
+      /* Final CTA */
+      .final-cta { padding: 4rem 1rem; }
+      .final-cta .btn-whatsapp { display: flex; width: 100%; }
+      .final-cta-subtitle { font-size: 1rem; }
+      .final-cta-title { margin-bottom: 1rem; }
+
+      /* Footer */
+      .footer { padding: 2.5rem 1rem 1.5rem; }
+      .footer-brand .logo { font-size: 1.75rem; }
+
+      /* Float WA */
+      .float-wa { width: 52px; height: 52px; bottom: 1rem; right: 1rem; }
+      .float-wa svg { width: 26px; height: 26px; }
+    }
+
+    /* ─── ≤ 374px : très petits téléphones (iPhone SE 1st gen, etc.) ─────── */
+    @media (max-width: 374px) {
+      .header { padding: 0.75rem 0.875rem; }
+      .logo { font-size: 1.1rem; }
+      .lang-btn { padding: 0.5rem 0.4rem; font-size: 0.62rem; }
+      .hero { padding: 5rem 0.875rem 2rem; }
+      .hero-title { font-size: clamp(1.875rem, 9vw, 2.5rem); }
+      .hero-eyebrow { font-size: 0.36rem; padding: 0.35rem 0.75rem; }
+      .hero-badge-1 { font-size: 0.62rem; padding: 0.4rem 0.65rem; }
+      .hero-badge-2 { font-size: 0.62rem; padding: 0.4rem 0.65rem; }
+      .section { padding: 2.5rem 0.875rem; }
+      .menu-card-body { padding: 1rem; }
+      .how-step { padding: 1rem 0.875rem; }
+      .how-step-number { font-size: 3rem; }
+      .footer { padding: 2rem 0.875rem 1.25rem; }
+    }
+
+    /* Lang visibility */
+    [data-lang] { display: none; }
+    [data-lang].active { display: contents; }
+    [data-lang-inline] { display: none; }
+    [data-lang-inline].active { display: inline; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="garba">GARBA</span><span class="box">BOX</span>
+      </a>
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang-btn="fr"><span class="fi fi-fr"></span> FR</button>
+        <button class="lang-btn" data-lang-btn="en"><span class="fi fi-gb"></span> EN</button>
+        <button class="lang-btn" data-lang-btn="de"><span class="fi fi-de"></span> DE</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">
+          <span data-lang-inline="fr" class="active">Uniquement sur commande · Vienne</span>
+          <span data-lang-inline="en">Order ahead · Vienna</span>
+          <span data-lang-inline="de">Nur auf Bestellung · Wien</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-lang-inline="fr" class="active">Le vrai garba.<br><span class="accent">À Vienne.</span></span>
+          <span data-lang-inline="en">Real garba.<br><span class="accent">In Vienna.</span></span>
+          <span data-lang-inline="de">Echtes Garba.<br><span class="accent">In Wien.</span></span>
+        </h1>
+
+        <p class="hero-subtitle">
+          <span data-lang-inline="fr" class="active">Attiéké frais, thon braisé, piment qui pique comme à la maison. Préparé à la commande, livré gratuitement.</span>
+          <span data-lang-inline="en">Fresh attiéké, grilled tuna, real African pepper. Made to order, free delivery across Vienna.</span>
+          <span data-lang-inline="de">Frisches Attiéké, gegrillter Thunfisch, scharf wie zu Hause. Frisch zubereitet, kostenlos geliefert.</span>
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander." class="btn-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-lang-inline="fr" class="active">Commander sur WhatsApp</span>
+            <span data-lang-inline="en">Order on WhatsApp</span>
+            <span data-lang-inline="de">Auf WhatsApp bestellen</span>
+          </a>
+
+          <div class="hero-meta">
+            <span class="hero-meta-item">
+              <span data-lang-inline="fr" class="active">Livraison gratuite</span>
+              <span data-lang-inline="en">Free delivery</span>
+              <span data-lang-inline="de">Gratis Lieferung</span>
+            </span>
+            <span class="hero-meta-item">
+              <span data-lang-inline="fr" class="active">Préparation 45-60 min</span>
+              <span data-lang-inline="en">45-60 min prep</span>
+              <span data-lang-inline="de">45-60 Min Zubereitung</span>
+            </span>
+            <span class="hero-meta-item">
+              <span data-lang-inline="fr" class="active">Paiement à la livraison</span>
+              <span data-lang-inline="en">Pay on delivery</span>
+              <span data-lang-inline="de">Bei Lieferung zahlen</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-badge hero-badge-1">Made in Abidjan</div>
+        <div class="hero-img-wrap">
+          <img
+            src="img/IMG_1261-1200x1068.webp"
+            srcset="img/IMG_1261-1200x1068.webp 1200w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 560px, 560px"
+            alt="Garba authentique — attiéké, thon braisé, piment frais"
+            class="hero-img"
+            loading="eager"
+          >
+        </div>
+        <div class="hero-badge hero-badge-2">
+          <span data-lang-inline="fr" class="active">🌶️ Bien piquant</span>
+          <span data-lang-inline="en">🌶️ Real spicy</span>
+          <span data-lang-inline="de">🌶️ Richtig scharf</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section class="section menu-section" id="menu">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <span data-lang-inline="fr" class="active">La carte</span>
+          <span data-lang-inline="en">The menu</span>
+          <span data-lang-inline="de">Die Karte</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-inline="fr" class="active">Choisis ta <span class="accent">box.</span></span>
+          <span data-lang-inline="en">Pick your <span class="accent">box.</span></span>
+          <span data-lang-inline="de">Wähle deine <span class="accent">Box.</span></span>
+        </h2>
+      </div>
+
+      <div class="menu-grid">
+
+        <!-- Card 1 : Garba Grand -->
+        <article class="menu-card">
+          <div class="menu-card-image">
+            <span class="menu-card-tag spicy">🌶️🌶️
+              <span data-lang-inline="fr" class="active">Bien piquant</span>
+              <span data-lang-inline="en">Real spicy</span>
+              <span data-lang-inline="de">Richtig scharf</span>
+            </span>
+            <img src="img/IMG_1261-1200x1068.webp" alt="Garba Grand" class="menu-card-photo" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-name">
+                <span data-lang-inline="fr" class="active">Garba Grand</span>
+                <span data-lang-inline="en">Garba Large</span>
+                <span data-lang-inline="de">Garba Groß</span>
+              </h3>
+              <span class="menu-card-price">16€</span>
+            </div>
+            <p class="menu-card-desc">
+              <span data-lang-inline="fr" class="active">Pour les gros appétits. Attiéké généreux, thon braisé entier, piment frais, oignon, sauce tomate maison.</span>
+              <span data-lang-inline="en">For big appetites. Generous attiéké, whole grilled tuna, fresh pepper, onion, homemade tomato sauce.</span>
+              <span data-lang-inline="de">Für den großen Hunger. Reichlich Attiéké, ganzer gegrillter Thunfisch, frischer Chili, Zwiebel, hausgemachte Tomatensauce.</span>
+            </p>
+            <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Garba%20Grand%20%2816%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              <span data-lang-inline="fr" class="active">Commander Grand</span>
+              <span data-lang-inline="en">Order Large</span>
+              <span data-lang-inline="de">Groß bestellen</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2 : Garba Moyen -->
+        <article class="menu-card">
+          <div class="menu-card-image">
+            <span class="menu-card-tag spicy">🌶️
+              <span data-lang-inline="fr" class="active">Piquant doux</span>
+              <span data-lang-inline="en">Mild spicy</span>
+              <span data-lang-inline="de">Mild scharf</span>
+            </span>
+            <img src="img/IMG_1261-1200x1068.webp" alt="Garba Moyen" class="menu-card-photo" style="object-position: center 40%;" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-name">
+                <span data-lang-inline="fr" class="active">Garba Moyen</span>
+                <span data-lang-inline="en">Garba Medium</span>
+                <span data-lang-inline="de">Garba Mittel</span>
+              </h3>
+              <span class="menu-card-price">12€</span>
+            </div>
+            <p class="menu-card-desc">
+              <span data-lang-inline="fr" class="active">La box classique. Tout ce qu'il faut pour se régaler, format normal.</span>
+              <span data-lang-inline="en">The classic box. Everything you need for a great meal, regular size.</span>
+              <span data-lang-inline="de">Die klassische Box. Alles was du brauchst, normale Größe.</span>
+            </p>
+            <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Garba%20Moyen%20%2812%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              <span data-lang-inline="fr" class="active">Commander Moyen</span>
+              <span data-lang-inline="en">Order Medium</span>
+              <span data-lang-inline="de">Mittel bestellen</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3 : Foutou -->
+        <article class="menu-card">
+          <div class="menu-card-image">
+            <span class="menu-card-tag">
+              <span data-lang-inline="fr" class="active">Sans piment</span>
+              <span data-lang-inline="en">No spice</span>
+              <span data-lang-inline="de">Ohne Schärfe</span>
+            </span>
+            <img src="img/IMG_1261-1200x1068.webp" alt="Foutou" class="menu-card-photo" style="object-position: 60% 60%;" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-name">
+                <span data-lang-inline="fr" class="active">3 Boules de Foutou</span>
+                <span data-lang-inline="en">3 Foutou Balls</span>
+                <span data-lang-inline="de">3 Foutou-Bällchen</span>
+              </h3>
+              <span class="menu-card-price">10€</span>
+            </div>
+            <p class="menu-card-desc">
+              <span data-lang-inline="fr" class="active">Foutou banane, servi nature. À commander avec ta sauce préférée.</span>
+              <span data-lang-inline="en">Plantain foutou, served plain. Order with your favorite sauce.</span>
+              <span data-lang-inline="de">Bananen-Foutou, pur serviert. Bestelle es mit deiner Lieblingssauce.</span>
+            </p>
+            <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%203%20Boules%20de%20Foutou%20%2810%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              <span data-lang-inline="fr" class="active">Commander Foutou</span>
+              <span data-lang-inline="en">Order Foutou</span>
+              <span data-lang-inline="de">Foutou bestellen</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="menu-footer">
+        <span>🚚
+          <span data-lang-inline="fr" class="active">Livraison gratuite à Vienne</span>
+          <span data-lang-inline="en">Free delivery in Vienna</span>
+          <span data-lang-inline="de">Gratis Lieferung in Wien</span>
+        </span>
+        <span>⏱️
+          <span data-lang-inline="fr" class="active">Préparation 45-60 min</span>
+          <span data-lang-inline="en">Made in 45-60 min</span>
+          <span data-lang-inline="de">Zubereitung 45-60 Min</span>
+        </span>
+        <span>💵
+          <span data-lang-inline="fr" class="active">Cash ou virement à la livraison</span>
+          <span data-lang-inline="en">Cash or transfer on delivery</span>
+          <span data-lang-inline="de">Bar oder Überweisung</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <span data-lang-inline="fr" class="active">Pourquoi nous</span>
+          <span data-lang-inline="en">Why us</span>
+          <span data-lang-inline="de">Warum wir</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-inline="fr" class="active">Le garba <span class="accent">comme à Abidjan.</span></span>
+          <span data-lang-inline="en">Garba <span class="accent">like in Abidjan.</span></span>
+          <span data-lang-inline="de">Garba <span class="accent">wie in Abidjan.</span></span>
+        </h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <img src="img/699f62ee220fc744b8fffacd62a6b184.jpg" alt="Thon frit" class="why-icon-img">
+          <h3 class="why-title">
+            <span data-lang-inline="fr" class="active">Thon frit bien cuit</span>
+            <span data-lang-inline="en">Fried tuna, well done</span>
+            <span data-lang-inline="de">Thunfisch gut durchgebraten</span>
+          </h3>
+          <p class="why-desc">
+            <span data-lang-inline="fr" class="active">Le braisage à la flamme, c'est ce qui fait le vrai goût. On ne triche pas avec un four.</span>
+            <span data-lang-inline="en">Flame grilling makes the real taste. We don't cheat with an oven.</span>
+            <span data-lang-inline="de">Echtes Aroma kommt vom offenen Feuer. Kein Backofen-Trick.</span>
+          </p>
+        </div>
+        <div class="why-item">
+          <img src="img/279ea636f1beb5a9b4e46ae85ec83cf1.jpg" alt="Placali et Sauce Copê" class="why-icon-img">
+          <h3 class="why-title">
+            <span data-lang-inline="fr" class="active">Placali & Sauce Copê</span>
+            <span data-lang-inline="en">Placali & Copê Sauce</span>
+            <span data-lang-inline="de">Placali & Copê-Sauce</span>
+          </h3>
+          <p class="why-desc">
+            <span data-lang-inline="fr" class="active">Pas de version "fusion" ou adoucie. On ne touche pas au piment, on ne wienise rien.</span>
+            <span data-lang-inline="en">No "fusion" version, no toned-down pepper. The real deal, not a Viennese remix.</span>
+            <span data-lang-inline="de">Keine "Fusion"-Version, keine reduzierte Schärfe. Das Original, nicht der Wiener Remix.</span>
+          </p>
+        </div>
+        <div class="why-item">
+          <img src="img/Boule-Attieke-500g.webp" alt="Boules d'attiéké" class="why-icon-img">
+          <h3 class="why-title">
+            <span data-lang-inline="fr" class="active">Boules d'attiéké</span>
+            <span data-lang-inline="en">Attiéké balls</span>
+            <span data-lang-inline="de">Attiéké-Bällchen</span>
+          </h3>
+          <p class="why-desc">
+            <span data-lang-inline="fr" class="active">Chaque box est préparée quand tu commandes. Pas de batch, pas de congélo, pas de réchauffé.</span>
+            <span data-lang-inline="en">Every box is made when you order. No batching, no freezer, no reheating.</span>
+            <span data-lang-inline="de">Jede Box wird auf Bestellung zubereitet. Nichts vorgekocht, nichts aus dem Tiefkühler.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section how-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <span data-lang-inline="fr" class="active">Comment ça marche</span>
+          <span data-lang-inline="en">How it works</span>
+          <span data-lang-inline="de">So funktioniert's</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-inline="fr" class="active">3 étapes, <span class="accent">c'est tout.</span></span>
+          <span data-lang-inline="en">3 steps, <span class="accent">that's it.</span></span>
+          <span data-lang-inline="de">3 Schritte, <span class="accent">fertig.</span></span>
+        </h2>
+      </div>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-step-number">01</div>
+          <h3 class="how-step-title">
+            <span data-lang-inline="fr" class="active">Tu écris</span>
+            <span data-lang-inline="en">You message</span>
+            <span data-lang-inline="de">Du schreibst</span>
+          </h3>
+          <p class="how-step-desc">
+            <span data-lang-inline="fr" class="active">Un message WhatsApp suffit. Dis-nous la box, la quantité, et ton adresse à Vienne.</span>
+            <span data-lang-inline="en">A WhatsApp message is enough. Tell us the box, quantity and your Vienna address.</span>
+            <span data-lang-inline="de">Eine WhatsApp-Nachricht genügt. Sag uns Box, Anzahl und deine Wiener Adresse.</span>
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">02</div>
+          <h3 class="how-step-title">
+            <span data-lang-inline="fr" class="active">On confirme</span>
+            <span data-lang-inline="en">We confirm</span>
+            <span data-lang-inline="de">Wir bestätigen</span>
+          </h3>
+          <p class="how-step-desc">
+            <span data-lang-inline="fr" class="active">On te donne l'heure exacte. La box est cuisinée à la commande : compte 45 à 60 minutes.</span>
+            <span data-lang-inline="en">We give you the exact time. Each box is freshly made: count 45-60 minutes.</span>
+            <span data-lang-inline="de">Wir nennen dir die genaue Uhrzeit. Frisch zubereitet: 45-60 Minuten.</span>
+          </p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">03</div>
+          <h3 class="how-step-title">
+            <span data-lang-inline="fr" class="active">On livre</span>
+            <span data-lang-inline="en">We deliver</span>
+            <span data-lang-inline="de">Wir liefern</span>
+          </h3>
+          <p class="how-step-desc">
+            <span data-lang-inline="fr" class="active">Livraison gratuite partout dans Vienne. Paiement à la livraison, cash ou virement.</span>
+            <span data-lang-inline="en">Free delivery anywhere in Vienna. Pay on delivery, cash or transfer.</span>
+            <span data-lang-inline="de">Gratis Lieferung in ganz Wien. Zahlung bei Lieferung, bar oder Überweisung.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="how-cta-wrap">
+        <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander." class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-lang-inline="fr" class="active">OK, je commande</span>
+          <span data-lang-inline="en">OK, I'm ordering</span>
+          <span data-lang-inline="de">OK, ich bestelle</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DELIVERY ===== -->
+  <section class="section delivery-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <span data-lang-inline="fr" class="active">Zone de livraison</span>
+          <span data-lang-inline="en">Delivery zone</span>
+          <span data-lang-inline="de">Liefergebiet</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-inline="fr" class="active">Partout dans <span class="accent">Vienne.</span></span>
+          <span data-lang-inline="en">All over <span class="accent">Vienna.</span></span>
+          <span data-lang-inline="de">In ganz <span class="accent">Wien.</span></span>
+        </h2>
+      </div>
+
+      <div class="delivery-zones">
+        <span class="zone-pill">1010</span>
+        <span class="zone-pill">1020</span>
+        <span class="zone-pill">1030</span>
+        <span class="zone-pill">1040</span>
+        <span class="zone-pill">1050</span>
+        <span class="zone-pill">1060</span>
+        <span class="zone-pill">1070</span>
+        <span class="zone-pill">1080</span>
+        <span class="zone-pill">1090</span>
+        <span class="zone-pill">1100</span>
+        <span class="zone-pill">1110</span>
+        <span class="zone-pill">1120</span>
+        <span class="zone-pill">1130</span>
+        <span class="zone-pill">1140</span>
+        <span class="zone-pill">1150</span>
+        <span class="zone-pill">1160</span>
+        <span class="zone-pill">1170</span>
+        <span class="zone-pill">1180</span>
+        <span class="zone-pill">1190</span>
+        <span class="zone-pill">1200</span>
+        <span class="zone-pill">1210</span>
+        <span class="zone-pill">1220</span>
+        <span class="zone-pill">1230</span>
+      </div>
+
+      <p class="delivery-note">
+        📍
+        <span data-lang-inline="fr" class="active">Hors zone ? Écris-nous, on s'arrange.</span>
+        <span data-lang-inline="en">Outside the zone? Message us, we'll figure it out.</span>
+        <span data-lang-inline="de">Außerhalb der Zone? Schreib uns, wir finden eine Lösung.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section faq-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 class="section-title">
+          <span data-lang-inline="fr" class="active">Les questions <span class="accent">qu'on nous pose.</span></span>
+          <span data-lang-inline="en">Frequently <span class="accent">asked.</span></span>
+          <span data-lang-inline="de">Häufige <span class="accent">Fragen.</span></span>
+        </h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>
+              <span data-lang-inline="fr" class="active">Vous livrez à quelle heure ?</span>
+              <span data-lang-inline="en">What are your delivery hours?</span>
+              <span data-lang-inline="de">Zu welcher Zeit liefert ihr?</span>
+            </span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <span data-lang-inline="fr" class="active">Du mardi au samedi, midi et soir. Pour les horaires précis du jour, écris-nous sur WhatsApp.</span>
+            <span data-lang-inline="en">Tuesday to Saturday, lunch and dinner. For exact times today, message us on WhatsApp.</span>
+            <span data-lang-inline="de">Dienstag bis Samstag, mittags und abends. Für genaue Zeiten schreib uns auf WhatsApp.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>
+              <span data-lang-inline="fr" class="active">Comment je paie ?</span>
+              <span data-lang-inline="en">How do I pay?</span>
+              <span data-lang-inline="de">Wie kann ich bezahlen?</span>
+            </span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <span data-lang-inline="fr" class="active">À la livraison, cash ou virement instantané (Revolut, Bizum, virement SEPA).</span>
+            <span data-lang-inline="en">On delivery — cash or instant transfer (Revolut, SEPA transfer).</span>
+            <span data-lang-inline="de">Bei der Lieferung — bar oder Sofortüberweisung (Revolut, SEPA).</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>
+              <span data-lang-inline="fr" class="active">Le piment, c'est vraiment piquant ?</span>
+              <span data-lang-inline="en">Is it really that spicy?</span>
+              <span data-lang-inline="de">Ist es wirklich so scharf?</span>
+            </span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <span data-lang-inline="fr" class="active">Oui, le vrai garba pique. Si tu n'es pas habitué, précise-le dans ton message, on adapte.</span>
+            <span data-lang-inline="en">Yes, real garba is spicy. If you're not used to it, just tell us in your message and we'll adjust.</span>
+            <span data-lang-inline="de">Ja, echtes Garba ist scharf. Sag uns in der Nachricht Bescheid, wir passen es an.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>
+              <span data-lang-inline="fr" class="active">Vous faites d'autres plats que le garba ?</span>
+              <span data-lang-inline="en">Do you make other dishes besides garba?</span>
+              <span data-lang-inline="de">Macht ihr auch andere Gerichte außer Garba?</span>
+            </span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <span data-lang-inline="fr" class="active">Pour l'instant on se concentre sur le garba et le foutou. Pour des plats spéciaux (kedjenou, sauce graine, mafé), écris-nous, on étudie au cas par cas.</span>
+            <span data-lang-inline="en">For now we focus on garba and foutou. For special dishes (kedjenou, palm nut sauce, mafé), message us and we'll consider it.</span>
+            <span data-lang-inline="de">Im Moment konzentrieren wir uns auf Garba und Foutou. Für Sondergerichte (Kedjenou, Palmfruchtsoße, Mafé) schreib uns — wir prüfen jeden Fall einzeln.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>
+              <span data-lang-inline="fr" class="active">Vous livrez aussi le week-end ?</span>
+              <span data-lang-inline="en">Do you deliver on weekends?</span>
+              <span data-lang-inline="de">Liefert ihr auch am Wochenende?</span>
+            </span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <span data-lang-inline="fr" class="active">Le samedi oui, le dimanche on se repose. Pour les événements ou commandes groupées, contacte-nous à l'avance.</span>
+            <span data-lang-inline="en">Saturday yes, Sunday we rest. For events or group orders, contact us in advance.</span>
+            <span data-lang-inline="de">Samstag ja, Sonntag machen wir Pause. Für Events oder Gruppenbestellungen, kontaktiere uns im Voraus.</span>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta">
+    <h2 class="final-cta-title">
+      <span data-lang-inline="fr" class="active">T'as faim ?<br>On est <span class="accent">là.</span></span>
+      <span data-lang-inline="en">Hungry?<br>We're <span class="accent">here.</span></span>
+      <span data-lang-inline="de">Hunger?<br>Wir sind <span class="accent">da.</span></span>
+    </h2>
+    <p class="final-cta-subtitle">
+      <span data-lang-inline="fr" class="active">Un message suffit. Le vrai goût d'Abidjan, livré chez toi à Vienne.</span>
+      <span data-lang-inline="en">One message is all it takes. The real taste of Abidjan, delivered to you in Vienna.</span>
+      <span data-lang-inline="de">Eine Nachricht genügt. Der echte Geschmack aus Abidjan, direkt zu dir nach Wien.</span>
+    </p>
+    <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander." class="btn-whatsapp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-lang-inline="fr" class="active">Commander maintenant</span>
+      <span data-lang-inline="en">Order now</span>
+      <span data-lang-inline="de">Jetzt bestellen</span>
+    </a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="garba">GARBA</span><span class="box">BOX</span>
+        </a>
+        <p class="footer-tagline">
+          <span data-lang-inline="fr" class="active">Le vrai goût d'Abidjan à Vienne.</span>
+          <span data-lang-inline="en">The real taste of Abidjan in Vienna.</span>
+          <span data-lang-inline="de">Der echte Geschmack von Abidjan in Wien.</span>
+        </p>
+      </div>
+
+      <div class="footer-contact">
+        <a href="https://wa.me/436766458082" target="_blank" rel="noopener">WhatsApp : +43 676 645 80 82</a>
+        <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander." target="_blank" rel="noopener">
+          <span data-lang-inline="fr" class="active">Commandez maintenant →</span>
+          <span data-lang-inline="en">Order now →</span>
+          <span data-lang-inline="de">Jetzt bestellen →</span>
+        </a>
+      </div>
+
+      <div class="footer-meta">
+        <span>© 2025 GarbaBox —
+          <span data-lang-inline="fr" class="active">Cuisine ivoirienne à Vienne</span>
+          <span data-lang-inline="en">Ivorian cuisine in Vienna</span>
+          <span data-lang-inline="de">Ivorische Küche in Wien</span>
+        </span>
+        <span>
+          <span data-lang-inline="fr" class="active">Fait avec ❤️ et beaucoup de piment</span>
+          <span data-lang-inline="en">Made with ❤️ and lots of pepper</span>
+          <span data-lang-inline="de">Gemacht mit ❤️ und viel Chili</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander." class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ── Language switcher ──────────────────────────────────────────────────
+    const langBtns = document.querySelectorAll('[data-lang-btn]');
+    const langInlines = document.querySelectorAll('[data-lang-inline]');
+
+    function setLang(lang) {
+      // Update buttons
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.langBtn === lang);
+      });
+      // Update inline spans
+      langInlines.forEach(el => {
+        el.classList.toggle('active', el.dataset.langInline === lang);
+      });
+      // Persist
+      try { localStorage.setItem('gb-lang', lang); } catch(e) {}
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.langBtn));
+    });
+
+    // Restore saved language
+    try {
+      const saved = localStorage.getItem('gb-lang');
+      if (saved && ['fr', 'en', 'de'].includes(saved)) setLang(saved);
+    } catch(e) {}
+
+    // ── FAQ accordion ──────────────────────────────────────────────────────
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        // Close all
+        faqItems.forEach(i => i.classList.remove('open'));
+        // Toggle current
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Scroll-based header shadow ─────────────────────────────────────────
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,0.4)'
+        : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
