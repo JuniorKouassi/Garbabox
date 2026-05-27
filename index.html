@@ -1295,6 +1295,38 @@
     .divers-card-price { font-family: var(--font-title); font-size: 1.2rem; font-weight: 700; color: var(--primary); font-style: italic; white-space: nowrap; flex-shrink: 0; }
     .divers-note { margin-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 
+    /* Divers card with photo — vertical layout */
+    .divers-card--photo {
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+      align-items: stretch;
+    }
+    .divers-card-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .divers-card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      transition: transform 400ms ease, filter 400ms ease;
+      filter: brightness(0.9) saturate(1.1);
+    }
+    .divers-card--photo:hover .divers-card-photo { transform: scale(1.05); filter: brightness(0.96) saturate(1.2); }
+    .divers-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.375rem 1.125rem;
+      flex: 1;
+    }
+
     /* ===== BOISSONS ===== */
     .boissons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 560px; }
     .boisson-card {
@@ -1869,9 +1901,14 @@
         </div>
         <div class="divers-grid">
 
-          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Poulet%20Yassa%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
-            <div class="divers-card-left"><div class="divers-card-name" itemprop="name">Poulet Yassa</div></div>
-            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Poulet%20Yassa%20%2825%E2%82%AC%29." class="divers-card divers-card--photo" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-img-wrap">
+              <img src="img/pouletyassa.jpeg" alt="Poulet Yassa — poulet mariné au citron, oignons et olives" class="divers-card-photo" loading="lazy" itemprop="image">
+            </div>
+            <div class="divers-card-bottom">
+              <div class="divers-card-left"><div class="divers-card-name" itemprop="name">Poulet Yassa</div></div>
+              <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+            </div>
           </a>
 
           <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Poulet%20saut%C3%A9%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
