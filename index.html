@@ -3,14 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GarbaBox — Le vrai garba à Vienne | Cuisine ivoirienne livrée</title>
-  <meta name="description" content="Garba authentique d'Abidjan livré gratuitement à Vienne. Attiéké, thon braisé, foutou. Commande sur WhatsApp.">
+  <title>GarbaBox Wien — Garba Ivoirien Livré à Domicile | Attiéké & Thon Frit</title>
+  <meta name="description" content="Commandez le vrai garba ivoirien à Vienne : attiéké frais, thon frit, Poulet Yassa, Alloco, Dêguê naturel. Livraison gratuite dans tout Vienne. Commandez sur WhatsApp.">
+  <meta name="keywords" content="garba vienne, cuisine ivoirienne wien, attiéké livraison vienne, thon frit vienne, poulet yassa wien, garbabox, livraison africaine vienne, ivoire garba, alloco wien">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1A120B">
+  <link rel="canonical" href="https://garbabox.kouassij019.workers.dev/">
+  <link rel="alternate" hreflang="fr" href="https://garbabox.kouassij019.workers.dev/">
+  <link rel="alternate" hreflang="en" href="https://garbabox.kouassij019.workers.dev/">
+  <link rel="alternate" hreflang="de" href="https://garbabox.kouassij019.workers.dev/">
+  <link rel="alternate" hreflang="x-default" href="https://garbabox.kouassij019.workers.dev/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="GarbaBox — Le vrai garba à Vienne">
-  <meta property="og:description" content="Garba authentique d'Abidjan livré gratuitement à Vienne. Commande sur WhatsApp.">
-  <meta property="og:type" content="restaurant.restaurant">
+  <meta property="og:title" content="GarbaBox Wien — Garba Ivoirien Livré à Domicile">
+  <meta property="og:description" content="Attiéké frais, thon frit, Poulet Yassa, Alloco, Dêguê naturel. Livraison gratuite dans tout Vienne. Commandez sur WhatsApp en 2 minutes.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://garbabox.kouassij019.workers.dev/">
+  <meta property="og:image" content="https://garbabox.kouassij019.workers.dev/img/IMG_1261-1200x1068.webp">
+  <meta property="og:image:alt" content="Garba ivoirien — attiéké frais, thon frit, piment fort">
+  <meta property="og:locale" content="fr_AT">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="de_AT">
+  <meta property="og:site_name" content="GarbaBox Wien">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GarbaBox Wien — Le vrai garba ivoirien à Vienne">
+  <meta name="twitter:description" content="Attiéké frais, thon frit, Poulet Yassa, Alloco. Livraison gratuite à Vienne.">
+  <meta name="twitter:image" content="https://garbabox.kouassij019.workers.dev/img/IMG_1261-1200x1068.webp">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "GarbaBox",
+    "alternateName": "Ivoire GarbaBox Wien",
+    "description": "Livraison de cuisine ivoirienne authentique à Vienne. Spécialités : garba (attiéké + thon frit), Poulet Yassa, Alloco, Tchèp, Dêguê naturel.",
+    "url": "https://garbabox.kouassij019.workers.dev/",
+    "telephone": "+436766458082",
+    "image": "https://garbabox.kouassij019.workers.dev/img/IMG_1261-1200x1068.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wien",
+      "addressRegion": "Wien",
+      "addressCountry": "AT"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.2082, "longitude": 16.3738 },
+    "servesCuisine": ["Ivorian", "West African", "African"],
+    "priceRange": "€€",
+    "openingHours": ["Tu-Sa 12:00-22:00"],
+    "hasDelivery": true,
+    "paymentAccepted": "Cash, Bank Transfer",
+    "currenciesAccepted": "EUR",
+    "menu": "https://garbabox.kouassij019.workers.dev/#menu",
+    "acceptsReservations": false,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+436766458082",
+      "contactType": "customer service",
+      "availableLanguage": ["French", "German", "English"]
+    }
+  }
+  </script>
 
   <!-- Flag Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css" crossorigin="anonymous">
@@ -1086,6 +1141,8 @@
       .hero-img-wrap { transform: rotate(1.5deg); }
 
       .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-category .menu-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .divers-grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
       .how-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 
@@ -1146,11 +1203,17 @@
 
       /* Menu */
       .menu-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .menu-category .menu-grid { grid-template-columns: 1fr; max-width: 100%; }
       .menu-card-body { padding: 1.1rem; }
       .menu-card-name { font-size: 1.15rem; }
       .menu-card-price { font-size: 1.6rem; }
       .menu-card-cta { min-height: 48px; font-size: 1rem; padding: 1rem; }
       .menu-footer { font-size: 0.85rem; }
+      .divers-grid { grid-template-columns: 1fr; }
+      .boissons-grid { max-width: 100%; }
+      /* Bottom nav + float WA */
+      .bottom-nav { display: block; }
+      .float-wa { bottom: 4.75rem; }
 
       /* Why */
       .why-grid { grid-template-columns: 1fr; gap: 1.75rem; }
@@ -1181,8 +1244,10 @@
       .footer-brand .logo { font-size: 1.75rem; }
 
       /* Float WA */
-      .float-wa { width: 52px; height: 52px; bottom: 1rem; right: 1rem; }
+      .float-wa { width: 52px; height: 52px; right: 1rem; }
       .float-wa svg { width: 26px; height: 26px; }
+      /* Footer above bottom nav */
+      .footer { padding-bottom: 5.5rem; }
     }
 
     /* ─── ≤ 374px : très petits téléphones (iPhone SE 1st gen, etc.) ─────── */
@@ -1200,7 +1265,163 @@
       .how-step { padding: 1rem 0.875rem; }
       .how-step-number { font-size: 3rem; }
       .footer { padding: 2rem 0.875rem 1.25rem; }
+      .bottom-nav-label { font-size: 0.5rem; }
+      .bottom-nav-btn svg { width: 20px; height: 20px; }
     }
+
+    /* ===== HEADER NAV (desktop ≥1024px) ===== */
+    .header-nav { display: none; gap: 0.25rem; align-items: center; }
+    @media (min-width: 1024px) { .header-nav { display: flex; } }
+    .header-nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: all 200ms;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .header-nav-btn:hover { color: var(--text); background: rgba(255,255,255,0.07); }
+    .header-nav-btn.active { color: var(--primary); background: rgba(244,196,48,0.08); }
+
+    /* ===== MENU CATEGORIES ===== */
+    .menu-category { margin-bottom: 4rem; }
+    .menu-category:last-child { margin-bottom: 0; }
+    .menu-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .menu-category-icon { font-size: 1.5rem; line-height: 1; }
+    .menu-category-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      color: var(--primary);
+    }
+    .menu-category-count {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      margin-left: auto;
+    }
+    /* 2-col garba grid (only 2 items) */
+    .menu-category .menu-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 860px;
+    }
+
+    /* ===== DIVERS ===== */
+    .divers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.875rem;
+    }
+    .divers-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.125rem 1.375rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 250ms ease;
+    }
+    .divers-card:hover {
+      border-color: rgba(244,196,48,0.25);
+      background: rgba(61,40,23,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .divers-card-left { flex: 1; min-width: 0; }
+    .divers-card-name { font-family: var(--font-title); font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .divers-card-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .divers-card-price {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-style: italic;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .divers-note {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ===== BOISSONS ===== */
+    .boissons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      max-width: 520px;
+    }
+    .boisson-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 250ms ease;
+      display: block;
+    }
+    .boisson-card:hover {
+      border-color: rgba(244,196,48,0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+    .boisson-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .boisson-name { font-family: var(--font-title); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+    .boisson-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .boisson-price { font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--primary); font-style: italic; }
+
+    /* ===== BOTTOM NAV (mobile only) ===== */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(16, 10, 5, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(244,196,48,0.12);
+      z-index: 200;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .bottom-nav-inner { display: flex; justify-content: space-around; align-items: stretch; }
+    .bottom-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      padding: 0.65rem 0.5rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 200ms;
+      flex: 1;
+      min-height: 56px;
+    }
+    .bottom-nav-btn:hover, .bottom-nav-btn.active { color: var(--primary); }
+    .bottom-nav-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .bottom-nav-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1; }
 
     /* Lang visibility */
     [data-lang] { display: none; }
@@ -1228,6 +1449,11 @@
       <a href="#" class="logo">
         <span class="garba">GARBA</span><span class="box">BOX</span>
       </a>
+      <nav class="header-nav" aria-label="Sections du menu">
+        <a href="#menu-garba" class="header-nav-btn">Menu Garba</a>
+        <a href="#divers" class="header-nav-btn">Divers</a>
+        <a href="#boissons" class="header-nav-btn">Boissons Naturelles</a>
+      </nav>
       <div class="lang-switcher" role="group" aria-label="Language">
         <button class="lang-btn active" data-lang-btn="fr"><span class="fi fi-fr"></span> FR</button>
         <button class="lang-btn" data-lang-btn="en"><span class="fi fi-gb"></span> EN</button>
@@ -1308,13 +1534,13 @@
   </section>
 
   <!-- ===== MENU ===== -->
-  <section class="section menu-section" id="menu">
+  <section class="section menu-section" id="menu" itemscope itemtype="https://schema.org/Menu">
     <div class="section-inner">
       <div class="section-header">
         <div class="section-eyebrow">
-          <span data-lang-inline="fr" class="active">La carte</span>
-          <span data-lang-inline="en">The menu</span>
-          <span data-lang-inline="de">Die Karte</span>
+          <span data-lang-inline="fr" class="active">La carte complète</span>
+          <span data-lang-inline="en">The full menu</span>
+          <span data-lang-inline="de">Die vollständige Karte</span>
         </div>
         <h2 class="section-title">
           <span data-lang-inline="fr" class="active">Choisis ta <span class="accent">box.</span></span>
@@ -1323,108 +1549,222 @@
         </h2>
       </div>
 
-      <div class="menu-grid">
+      <!-- ─── Menu Garba ─── -->
+      <div class="menu-category" id="menu-garba">
+        <div class="menu-category-header">
+          <span class="menu-category-icon">🍽️</span>
+          <h3 class="menu-category-title">Menu Garba</h3>
+          <span class="menu-category-count">2 formules</span>
+        </div>
+        <div class="menu-grid">
 
-        <!-- Card 1 : Garba Grand -->
-        <article class="menu-card">
-          <div class="menu-card-image">
-            <span class="menu-card-tag spicy">🌶️🌶️
-              <span data-lang-inline="fr" class="active">Bien piquant</span>
-              <span data-lang-inline="en">Real spicy</span>
-              <span data-lang-inline="de">Richtig scharf</span>
-            </span>
-            <img src="img/IMG_1261-1200x1068.webp" alt="Garba Grand" class="menu-card-photo" loading="lazy">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-header">
-              <h3 class="menu-card-name">
-                <span data-lang-inline="fr" class="active">Garba Grand</span>
-                <span data-lang-inline="en">Garba Large</span>
-                <span data-lang-inline="de">Garba Groß</span>
-              </h3>
-              <span class="menu-card-price">16€</span>
+          <!-- GarbaBox Moyen -->
+          <article class="menu-card" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="menu-card-image">
+              <span class="menu-card-tag spicy">🌶️
+                <span data-lang-inline="fr" class="active">Piquant au choix</span>
+                <span data-lang-inline="en">Spice to taste</span>
+                <span data-lang-inline="de">Schärfe nach Wahl</span>
+              </span>
+              <img src="img/IMG_1261-1200x1068.webp" alt="GarbaBox Moyen — attiéké frais et 1 poisson thon frit" class="menu-card-photo" loading="lazy" itemprop="image">
             </div>
-            <p class="menu-card-desc">
-              <span data-lang-inline="fr" class="active">Pour les gros appétits. Attiéké généreux, thon braisé entier, piment frais, oignon, sauce tomate maison.</span>
-              <span data-lang-inline="en">For big appetites. Generous attiéké, whole grilled tuna, fresh pepper, onion, homemade tomato sauce.</span>
-              <span data-lang-inline="de">Für den großen Hunger. Reichlich Attiéké, ganzer gegrillter Thunfisch, frischer Chili, Zwiebel, hausgemachte Tomatensauce.</span>
-            </p>
-            <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Garba%20Grand%20%2816%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-              <span data-lang-inline="fr" class="active">Commander Grand</span>
-              <span data-lang-inline="en">Order Large</span>
-              <span data-lang-inline="de">Groß bestellen</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 2 : Garba Moyen -->
-        <article class="menu-card">
-          <div class="menu-card-image">
-            <span class="menu-card-tag spicy">🌶️
-              <span data-lang-inline="fr" class="active">Piquant doux</span>
-              <span data-lang-inline="en">Mild spicy</span>
-              <span data-lang-inline="de">Mild scharf</span>
-            </span>
-            <img src="img/IMG_1261-1200x1068.webp" alt="Garba Moyen" class="menu-card-photo" style="object-position: center 40%;" loading="lazy">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-header">
-              <h3 class="menu-card-name">
-                <span data-lang-inline="fr" class="active">Garba Moyen</span>
-                <span data-lang-inline="en">Garba Medium</span>
-                <span data-lang-inline="de">Garba Mittel</span>
-              </h3>
-              <span class="menu-card-price">12€</span>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-name" itemprop="name">
+                  <span data-lang-inline="fr" class="active">GarbaBox Moyen</span>
+                  <span data-lang-inline="en">GarbaBox Medium</span>
+                  <span data-lang-inline="de">GarbaBox Mittel</span>
+                </h3>
+                <span class="menu-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <span itemprop="price" content="13">13€</span><meta itemprop="priceCurrency" content="EUR">
+                </span>
+              </div>
+              <p class="menu-card-desc" itemprop="description">
+                <span data-lang-inline="fr" class="active">Attiéké frais + 1 poisson thon frit. La box classique, préparée à la commande avec piment fort.</span>
+                <span data-lang-inline="en">Fresh attiéké + 1 fried tuna. The classic box, made fresh to order with real pepper.</span>
+                <span data-lang-inline="de">Frisches Attiéké + 1 gebratener Thunfisch. Die klassische Box, frisch auf Bestellung mit echtem Chili.</span>
+              </p>
+              <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20GarbaBox%20Moyen%20%2813%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span data-lang-inline="fr" class="active">Commander — 13€</span>
+                <span data-lang-inline="en">Order — 13€</span>
+                <span data-lang-inline="de">Bestellen — 13€</span>
+              </a>
             </div>
-            <p class="menu-card-desc">
-              <span data-lang-inline="fr" class="active">La box classique. Tout ce qu'il faut pour se régaler, format normal.</span>
-              <span data-lang-inline="en">The classic box. Everything you need for a great meal, regular size.</span>
-              <span data-lang-inline="de">Die klassische Box. Alles was du brauchst, normale Größe.</span>
-            </p>
-            <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Garba%20Moyen%20%2812%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-              <span data-lang-inline="fr" class="active">Commander Moyen</span>
-              <span data-lang-inline="en">Order Medium</span>
-              <span data-lang-inline="de">Mittel bestellen</span>
-            </a>
-          </div>
-        </article>
+          </article>
 
-        <!-- Card 3 : Foutou -->
-        <article class="menu-card">
-          <div class="menu-card-image">
-            <span class="menu-card-tag">
-              <span data-lang-inline="fr" class="active">Sans piment</span>
-              <span data-lang-inline="en">No spice</span>
-              <span data-lang-inline="de">Ohne Schärfe</span>
-            </span>
-            <img src="img/IMG_1261-1200x1068.webp" alt="Foutou" class="menu-card-photo" style="object-position: 60% 60%;" loading="lazy">
-          </div>
-          <div class="menu-card-body">
-            <div class="menu-card-header">
-              <h3 class="menu-card-name">
-                <span data-lang-inline="fr" class="active">3 Boules de Foutou</span>
-                <span data-lang-inline="en">3 Foutou Balls</span>
-                <span data-lang-inline="de">3 Foutou-Bällchen</span>
-              </h3>
-              <span class="menu-card-price">10€</span>
+          <!-- GarbaBox Grand -->
+          <article class="menu-card" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="menu-card-image">
+              <span class="menu-card-tag spicy">🌶️🌶️
+                <span data-lang-inline="fr" class="active">Bien piquant</span>
+                <span data-lang-inline="en">Real spicy</span>
+                <span data-lang-inline="de">Richtig scharf</span>
+              </span>
+              <img src="img/IMG_1261-1200x1068.webp" alt="GarbaBox Grand — attiéké frais et 2 poissons thon frits" class="menu-card-photo" style="object-position: center 40%;" loading="lazy" itemprop="image">
             </div>
-            <p class="menu-card-desc">
-              <span data-lang-inline="fr" class="active">Foutou banane, servi nature. À commander avec ta sauce préférée.</span>
-              <span data-lang-inline="en">Plantain foutou, served plain. Order with your favorite sauce.</span>
-              <span data-lang-inline="de">Bananen-Foutou, pur serviert. Bestelle es mit deiner Lieblingssauce.</span>
-            </p>
-            <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%203%20Boules%20de%20Foutou%20%2810%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-              <span data-lang-inline="fr" class="active">Commander Foutou</span>
-              <span data-lang-inline="en">Order Foutou</span>
-              <span data-lang-inline="de">Foutou bestellen</span>
-            </a>
-          </div>
-        </article>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-name" itemprop="name">
+                  <span data-lang-inline="fr" class="active">GarbaBox Grand</span>
+                  <span data-lang-inline="en">GarbaBox Large</span>
+                  <span data-lang-inline="de">GarbaBox Groß</span>
+                </h3>
+                <span class="menu-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <span itemprop="price" content="17">17€</span><meta itemprop="priceCurrency" content="EUR">
+                </span>
+              </div>
+              <p class="menu-card-desc" itemprop="description">
+                <span data-lang-inline="fr" class="active">Attiéké frais + 2 poissons thon frits. Pour les grands appétits, le vrai festin d'Abidjan.</span>
+                <span data-lang-inline="en">Fresh attiéké + 2 fried tuna. For big appetites — a real Abidjan feast.</span>
+                <span data-lang-inline="de">Frisches Attiéké + 2 gebratene Thunfische. Für den großen Hunger — ein echtes Abidjan-Festmahl.</span>
+              </p>
+              <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20GarbaBox%20Grand%20%2817%E2%82%AC%29." class="menu-card-cta" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span data-lang-inline="fr" class="active">Commander — 17€</span>
+                <span data-lang-inline="en">Order — 17€</span>
+                <span data-lang-inline="de">Bestellen — 17€</span>
+              </a>
+            </div>
+          </article>
 
-      </div>
+        </div><!-- /menu-grid -->
+      </div><!-- /#menu-garba -->
+
+      <!-- ─── Divers ─── -->
+      <div class="menu-category" id="divers">
+        <div class="menu-category-header">
+          <span class="menu-category-icon">🥘</span>
+          <h3 class="menu-category-title">Divers</h3>
+          <span class="menu-category-count">9 plats</span>
+        </div>
+        <div class="divers-grid">
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Poulet%20Yassa%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left"><div class="divers-card-name" itemprop="name">Poulet Yassa</div></div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Poulet%20saut%C3%A9%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left"><div class="divers-card-name" itemprop="name">Poulet sauté</div></div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Alloco." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left">
+              <div class="divers-card-name" itemprop="name">Alloco</div>
+              <div class="divers-card-note">
+                <span data-lang-inline="fr" class="active">Normal 16€ · Grand 25€</span>
+                <span data-lang-inline="en">Regular 16€ · Large 25€</span>
+                <span data-lang-inline="de">Normal 16€ · Groß 25€</span>
+              </div>
+            </div>
+            <div class="divers-card-price">16–25€</div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Tch%C3%A8p%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left">
+              <div class="divers-card-name" itemprop="name">Tchèp</div>
+              <div class="divers-card-note">
+                <span data-lang-inline="fr" class="active">Riz au poisson sénégalais</span>
+                <span data-lang-inline="en">Senegalese fish rice</span>
+                <span data-lang-inline="de">Senegalesischer Fisch-Reis</span>
+              </div>
+            </div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Poisson%20brais%C3%A9%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left"><div class="divers-card-name" itemprop="name">Poisson braisé</div></div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20une%20Arachide%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left">
+              <div class="divers-card-name" itemprop="name">Arachide</div>
+              <div class="divers-card-note">
+                <span data-lang-inline="fr" class="active">Sauce arachide</span>
+                <span data-lang-inline="en">Peanut sauce</span>
+                <span data-lang-inline="de">Erdnuss-Sauce</span>
+              </div>
+            </div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20des%20Aubergines%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left"><div class="divers-card-name" itemprop="name">Aubergines</div></div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Gombo%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left">
+              <div class="divers-card-name" itemprop="name">Gombo</div>
+              <div class="divers-card-note">
+                <span data-lang-inline="fr" class="active">Sauce gombo / okra</span>
+                <span data-lang-inline="en">Okra sauce</span>
+                <span data-lang-inline="de">Okra-Sauce</span>
+              </div>
+            </div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20des%20Feuilles%2F%C3%89pinards%20%2825%E2%82%AC%29." class="divers-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="divers-card-left">
+              <div class="divers-card-name" itemprop="name">Feuilles / Épinards</div>
+              <div class="divers-card-note">
+                <span data-lang-inline="fr" class="active">Sauce feuilles</span>
+                <span data-lang-inline="en">Leafy greens sauce</span>
+                <span data-lang-inline="de">Blätter-Sauce</span>
+              </div>
+            </div>
+            <div class="divers-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="25">25€</span><meta itemprop="priceCurrency" content="EUR"></div>
+          </a>
+
+        </div><!-- /divers-grid -->
+        <p class="divers-note">
+          📸 <span data-lang-inline="fr" class="active">Photos des plats Divers à venir — commandez dès maintenant sur WhatsApp.</span>
+          <span data-lang-inline="en">Divers photos coming soon — order now on WhatsApp.</span>
+          <span data-lang-inline="de">Fotos der Divers-Gerichte folgen bald — jetzt auf WhatsApp bestellen.</span>
+        </p>
+      </div><!-- /#divers -->
+
+      <!-- ─── Boissons Naturelles ─── -->
+      <div class="menu-category" id="boissons">
+        <div class="menu-category-header">
+          <span class="menu-category-icon">🥤</span>
+          <h3 class="menu-category-title">Boissons Naturelles</h3>
+          <span class="menu-category-count">2 boissons</span>
+        </div>
+        <div class="boissons-grid">
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20D%C3%AAgu%C3%A9%20%2810%E2%82%AC%29." class="boisson-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="boisson-icon">🥛</div>
+            <div class="boisson-name" itemprop="name">Dêguê</div>
+            <div class="boisson-desc" itemprop="description">
+              <span data-lang-inline="fr" class="active">Boisson lactée ivoirienne, légèrement sucrée et parfumée</span>
+              <span data-lang-inline="en">Ivorian milk drink, lightly sweetened and flavoured</span>
+              <span data-lang-inline="de">Ivorisches Milchgetränk, leicht gesüßt und aromatisch</span>
+            </div>
+            <div class="boisson-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="price" content="10">10€</span><meta itemprop="priceCurrency" content="EUR">
+            </div>
+          </a>
+
+          <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Gingembre%20%2810%E2%82%AC%29." class="boisson-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
+            <div class="boisson-icon">🌿</div>
+            <div class="boisson-name" itemprop="name">Gingembre</div>
+            <div class="boisson-desc" itemprop="description">
+              <span data-lang-inline="fr" class="active">Jus de gingembre naturel maison, rafraîchissant et piquant</span>
+              <span data-lang-inline="en">Natural homemade ginger juice, refreshing and zesty</span>
+              <span data-lang-inline="de">Natürlicher hausgemachter Ingwersaft, erfrischend und scharf</span>
+            </div>
+            <div class="boisson-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="price" content="10">10€</span><meta itemprop="priceCurrency" content="EUR">
+            </div>
+          </a>
+
+        </div><!-- /boissons-grid -->
+      </div><!-- /#boissons -->
 
       <div class="menu-footer">
         <span>🚚
@@ -1698,9 +2038,9 @@
             <span class="faq-toggle">+</span>
           </button>
           <div class="faq-answer"><div class="faq-answer-inner">
-            <span data-lang-inline="fr" class="active">Pour l'instant on se concentre sur le garba et le foutou. Pour des plats spéciaux (kedjenou, sauce graine, mafé), écris-nous, on étudie au cas par cas.</span>
-            <span data-lang-inline="en">For now we focus on garba and foutou. For special dishes (kedjenou, palm nut sauce, mafé), message us and we'll consider it.</span>
-            <span data-lang-inline="de">Im Moment konzentrieren wir uns auf Garba und Foutou. Für Sondergerichte (Kedjenou, Palmfruchtsoße, Mafé) schreib uns — wir prüfen jeden Fall einzeln.</span>
+            <span data-lang-inline="fr" class="active">Oui ! En plus du garba, on propose Poulet Yassa, Poulet sauté, Alloco, Tchèp, Poisson braisé, Sauce Arachide, Aubergines, Gombo, Feuilles/Épinards, et des boissons naturelles (Dêguê, Gingembre). Consulte la section <a href="#divers" style="color:var(--primary)">Divers</a> du menu.</span>
+            <span data-lang-inline="en">Yes! Besides garba, we offer Poulet Yassa, Sautéed Chicken, Alloco, Tchèp, Grilled Fish, Peanut Sauce, Eggplant, Okra, Leafy Greens, and natural drinks (Dêguê, Ginger). See our <a href="#divers" style="color:var(--primary)">Divers</a> section.</span>
+            <span data-lang-inline="de">Ja! Neben Garba bieten wir auch Poulet Yassa, Sautiertes Hähnchen, Alloco, Tchèp, Gegrillten Fisch, Erdnuss-Sauce, Auberginen, Okra, Blätter-Sauce und Naturgetränke (Dêguê, Ingwer) an. Sieh dir den <a href="#divers" style="color:var(--primary)">Divers</a>-Bereich an.</span>
           </div></div>
         </div>
 
@@ -1781,6 +2121,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== BOTTOM NAV (mobile) ===== -->
+  <nav class="bottom-nav" aria-label="Navigation sections">
+    <div class="bottom-nav-inner">
+      <a href="#menu-garba" class="bottom-nav-btn" data-nav="menu-garba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+        </svg>
+        <span class="bottom-nav-label">Menu Garba</span>
+      </a>
+      <a href="#divers" class="bottom-nav-btn" data-nav="divers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span class="bottom-nav-label">Divers</span>
+      </a>
+      <a href="#boissons" class="bottom-nav-btn" data-nav="boissons">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+        </svg>
+        <span class="bottom-nav-label">Boissons</span>
+      </a>
+    </div>
+  </nav>
 
   <!-- ===== FLOATING WHATSAPP ===== -->
   <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander." class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -1867,6 +2231,25 @@
         ? '0 4px 24px rgba(0,0,0,0.4)'
         : 'none';
     }, { passive: true });
+
+    // ── Nav active state (bottom nav + header nav) ─────────────────────────
+    const bottomNavBtns = document.querySelectorAll('.bottom-nav-btn');
+    const headerNavBtns = document.querySelectorAll('.header-nav-btn');
+    const menuSections = ['menu-garba', 'divers', 'boissons'];
+
+    if (bottomNavBtns.length || headerNavBtns.length) {
+      const updateNav = (id) => {
+        bottomNavBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.nav === id));
+        headerNavBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('href') === '#' + id));
+      };
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) updateNav(entry.target.id); });
+      }, { threshold: 0.25, rootMargin: '-10% 0px -55% 0px' });
+      menuSections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) navObserver.observe(el);
+      });
+    }
   </script>
 
 </body>
