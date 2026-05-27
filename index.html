@@ -1307,9 +1307,22 @@
       color: var(--text);
       transition: all 250ms ease;
       display: block;
+      overflow: hidden;
     }
     .boisson-card:hover { border-color: rgba(244,196,48,0.25); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
     .boisson-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+    /* Photo replaces emoji icon — breaks out of card padding for edge-to-edge image */
+    .boisson-photo {
+      display: block;
+      width: calc(100% + 3rem);
+      margin: -2rem -1.5rem 1.25rem;
+      height: 155px;
+      object-fit: cover;
+      transition: transform 400ms ease;
+      filter: brightness(0.9) saturate(1.15);
+    }
+    .boisson-card:hover .boisson-photo { transform: scale(1.05); filter: brightness(0.96) saturate(1.2); }
     .boisson-name { font-family: var(--font-title); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
     .boisson-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
     .boisson-price { font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--primary); font-style: italic; }
@@ -1453,6 +1466,7 @@
       .boissons-grid { max-width: 100%; gap: 0.875rem; grid-template-columns: repeat(2, 1fr); }
       .boisson-card { padding: 1.5rem 1rem; }
       .boisson-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+      .boisson-photo { width: calc(100% + 2rem); margin: -1.5rem -1rem 1rem; height: 120px; }
       .boisson-name { font-size: 1rem; }
       .boisson-desc { font-size: 0.78rem; }
       .boisson-price { font-size: 1.35rem; }
@@ -1903,7 +1917,7 @@
         <div class="boissons-grid">
 
           <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20D%C3%AAgu%C3%A9%20%2810%E2%82%AC%29." class="boisson-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
-            <div class="boisson-icon">🥛</div>
+            <img src="img/degue.jpg" alt="Dêguê — boisson lactée ivoirienne aux graines de chia" class="boisson-photo" loading="lazy">
             <div class="boisson-name" itemprop="name">Dêguê</div>
             <div class="boisson-desc" itemprop="description">
               <span data-lang-inline="fr" class="active">Boisson lactée ivoirienne, légèrement sucrée et parfumée</span>
@@ -1916,7 +1930,7 @@
           </a>
 
           <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Gingembre%20%2810%E2%82%AC%29." class="boisson-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
-            <div class="boisson-icon">🌿</div>
+            <img src="img/gingembre.jpg" alt="Jus de gingembre naturel maison" class="boisson-photo" loading="lazy">
             <div class="boisson-name" itemprop="name">Gingembre</div>
             <div class="boisson-desc" itemprop="description">
               <span data-lang-inline="fr" class="active">Jus de gingembre naturel maison, rafraîchissant et piquant</span>
