@@ -1296,36 +1296,52 @@
     .divers-note { margin-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 
     /* ===== BOISSONS ===== */
-    .boissons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 520px; }
+    .boissons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 560px; }
     .boisson-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 2rem 1.5rem;
       text-align: center;
       text-decoration: none;
       color: var(--text);
       transition: all 250ms ease;
-      display: block;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
     }
     .boisson-card:hover { border-color: rgba(244,196,48,0.25); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
-    .boisson-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
 
-    /* Photo replaces emoji icon — breaks out of card padding for edge-to-edge image */
+    /* Image container — clean aspect-ratio crop, no padding tricks */
+    .boisson-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
     .boisson-photo {
-      display: block;
-      width: calc(100% + 3rem);
-      margin: -2rem -1.5rem 1.25rem;
-      height: 155px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      transition: transform 400ms ease;
-      filter: brightness(0.9) saturate(1.15);
+      object-position: center 40%;
+      display: block;
+      transition: transform 400ms ease, filter 400ms ease;
+      filter: brightness(0.9) saturate(1.1);
     }
     .boisson-card:hover .boisson-photo { transform: scale(1.05); filter: brightness(0.96) saturate(1.2); }
-    .boisson-name { font-family: var(--font-title); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
-    .boisson-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
-    .boisson-price { font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--primary); font-style: italic; }
+
+    /* Content area below the image */
+    .boisson-content {
+      padding: 1.25rem 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      flex: 1;
+    }
+    .boisson-icon { font-size: 2.5rem; } /* fallback if no photo */
+    .boisson-name { font-family: var(--font-title); font-size: 1.2rem; font-weight: 700; color: var(--text); }
+    .boisson-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
+    .boisson-price { font-family: var(--font-title); font-size: 1.6rem; font-weight: 700; color: var(--primary); font-style: italic; margin-top: auto; padding-top: 0.5rem; }
 
     /* ===== BOTTOM NAV (base: hidden) ===== */
     .bottom-nav {
@@ -1464,9 +1480,10 @@
 
       /* Boissons */
       .boissons-grid { max-width: 100%; gap: 0.875rem; grid-template-columns: repeat(2, 1fr); }
-      .boisson-card { padding: 1.5rem 1rem; }
-      .boisson-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-      .boisson-photo { width: calc(100% + 2rem); margin: -1.5rem -1rem 1rem; height: 120px; }
+      .boisson-content { padding: 1rem 1rem 1.25rem; }
+      .boisson-name { font-size: 1rem; }
+      .boisson-desc { font-size: 0.78rem; }
+      .boisson-price { font-size: 1.35rem; }
       .boisson-name { font-size: 1rem; }
       .boisson-desc { font-size: 0.78rem; }
       .boisson-price { font-size: 1.35rem; }
@@ -1917,28 +1934,36 @@
         <div class="boissons-grid">
 
           <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20D%C3%AAgu%C3%A9%20%2810%E2%82%AC%29." class="boisson-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
-            <img src="img/degue.jpg" alt="Dêguê — boisson lactée ivoirienne aux graines de chia" class="boisson-photo" loading="lazy">
-            <div class="boisson-name" itemprop="name">Dêguê</div>
-            <div class="boisson-desc" itemprop="description">
-              <span data-lang-inline="fr" class="active">Boisson lactée ivoirienne, légèrement sucrée et parfumée</span>
-              <span data-lang-inline="en">Ivorian milk drink, lightly sweetened and flavoured</span>
-              <span data-lang-inline="de">Ivorisches Milchgetränk, leicht gesüßt und aromatisch</span>
+            <div class="boisson-img-wrap">
+              <img src="img/degue.jpg" alt="Dêguê — boisson lactée ivoirienne aux graines de chia" class="boisson-photo" style="object-position: center 30%;" loading="lazy">
             </div>
-            <div class="boisson-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <span itemprop="price" content="10">10€</span><meta itemprop="priceCurrency" content="EUR">
+            <div class="boisson-content">
+              <div class="boisson-name" itemprop="name">Dêguê</div>
+              <div class="boisson-desc" itemprop="description">
+                <span data-lang-inline="fr" class="active">Boisson lactée ivoirienne, légèrement sucrée et parfumée</span>
+                <span data-lang-inline="en">Ivorian milk drink, lightly sweetened and flavoured</span>
+                <span data-lang-inline="de">Ivorisches Milchgetränk, leicht gesüßt und aromatisch</span>
+              </div>
+              <div class="boisson-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="price" content="10">10€</span><meta itemprop="priceCurrency" content="EUR">
+              </div>
             </div>
           </a>
 
           <a href="https://wa.me/436766458082?text=Bonjour%20GarbaBox%2C%20je%20voudrais%20commander%20un%20Gingembre%20%2810%E2%82%AC%29." class="boisson-card" target="_blank" rel="noopener" itemscope itemtype="https://schema.org/MenuItem">
-            <img src="img/gingembre.jpg" alt="Jus de gingembre naturel maison" class="boisson-photo" loading="lazy">
-            <div class="boisson-name" itemprop="name">Gingembre</div>
-            <div class="boisson-desc" itemprop="description">
-              <span data-lang-inline="fr" class="active">Jus de gingembre naturel maison, rafraîchissant et piquant</span>
-              <span data-lang-inline="en">Natural homemade ginger juice, refreshing and zesty</span>
-              <span data-lang-inline="de">Natürlicher hausgemachter Ingwersaft, erfrischend und scharf</span>
+            <div class="boisson-img-wrap">
+              <img src="img/gingembre.jpg" alt="Jus de gingembre naturel maison" class="boisson-photo" style="object-position: center 25%;" loading="lazy">
             </div>
-            <div class="boisson-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <span itemprop="price" content="10">10€</span><meta itemprop="priceCurrency" content="EUR">
+            <div class="boisson-content">
+              <div class="boisson-name" itemprop="name">Gingembre</div>
+              <div class="boisson-desc" itemprop="description">
+                <span data-lang-inline="fr" class="active">Jus de gingembre naturel maison, rafraîchissant et piquant</span>
+                <span data-lang-inline="en">Natural homemade ginger juice, refreshing and zesty</span>
+                <span data-lang-inline="de">Natürlicher hausgemachter Ingwersaft, erfrischend und scharf</span>
+              </div>
+              <div class="boisson-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="price" content="10">10€</span><meta itemprop="priceCurrency" content="EUR">
+              </div>
             </div>
           </a>
 
