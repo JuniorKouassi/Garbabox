@@ -2563,7 +2563,7 @@
     const langBtns = document.querySelectorAll('[data-lang-btn]');
     const langInlines = document.querySelectorAll('[data-lang-inline]');
 
-    function setLang(lang) {
+    function setLang(lang, persist) {
       // Update buttons
       langBtns.forEach(btn => {
         btn.classList.toggle('active', btn.dataset.langBtn === lang);
@@ -2572,19 +2572,36 @@
       langInlines.forEach(el => {
         el.classList.toggle('active', el.dataset.langInline === lang);
       });
-      // Persist
-      try { localStorage.setItem('gb-lang', lang); } catch(e) {}
+      // Only save when the user explicitly chose a language
+      if (persist) {
+        try { localStorage.setItem('gb-lang', lang); } catch(e) {}
+      }
     }
 
+    // Manual button click → save the explicit choice
     langBtns.forEach(btn => {
-      btn.addEventListener('click', () => setLang(btn.dataset.langBtn));
+      btn.addEventListener('click', () => setLang(btn.dataset.langBtn, true));
     });
 
-    // Restore saved language
+    // Priority: 1) saved user choice  2) browser/phone language  3) French default
     try {
       const saved = localStorage.getItem('gb-lang');
-      if (saved && ['fr', 'en', 'de'].includes(saved)) setLang(saved);
-    } catch(e) {}
+      if (saved && ['fr', 'en', 'de'].includes(saved)) {
+        setLang(saved, false);
+      } else {
+        // Detect from the phone/browser preferred language list
+        const supported = ['fr', 'en', 'de'];
+        const detected = (navigator.languages && navigator.languages.length
+          ? Array.from(navigator.languages)
+          : [navigator.language || '']
+        )
+          .map(l => l.slice(0, 2).toLowerCase())
+          .find(l => supported.includes(l));
+        setLang(detected || 'fr', false);
+      }
+    } catch(e) {
+      setLang('fr', false);
+    }
 
     // ── FAQ accordion ──────────────────────────────────────────────────────
     const faqItems = document.querySelectorAll('.faq-item');
