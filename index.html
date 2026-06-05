@@ -804,7 +804,12 @@
       gap: 3rem;
     }
 
-    .why-item { text-align: center; }
+    .why-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .why-icon {
       font-size: 3rem;
@@ -845,6 +850,10 @@
       font-family: var(--font-title);
       font-weight: 700;
       font-size: 1.375rem;
+      min-height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 0.75rem;
       color: var(--primary);
     }
