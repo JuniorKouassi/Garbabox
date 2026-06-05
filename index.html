@@ -432,12 +432,14 @@
     }
 
     .hero-ci-flag {
-      float: right;
+      display: inline-block;
+      vertical-align: top;
       width: 4.5rem;
       height: 3rem;
       border-radius: 8px;
       margin-left: 1rem;
-      margin-top: 0.15em;
+      margin-top: 0.1em;
+      flex-shrink: 0;
       box-shadow:
         0 6px 20px rgba(0, 0, 0, 0.45),
         0 0 0 2px rgba(244, 196, 48, 0.35),
@@ -1443,6 +1445,8 @@
     /* ─── ≥ 1024px : desktop nav visible ──────────────────────────────────── */
     @media (min-width: 1024px) {
       .header-nav { display: flex; }
+      .hero-title { display: flex; align-items: flex-start; }
+      .hero-ci-flag { margin-left: 1.2rem; margin-top: 0.05em; }
     }
 
     /* ─── ≤ 1023px : tablettes ────────────────────────────────────────────── */
@@ -1751,10 +1755,10 @@
         </div>
 
         <h1 class="hero-title">
-          <span class="fi fi-ci hero-ci-flag"></span>
           <span data-lang-inline="fr" class="active">Le vrai garba.<br><span class="accent">À Vienne.</span></span>
           <span data-lang-inline="en">Real garba.<br><span class="accent">In Vienna.</span></span>
           <span data-lang-inline="de">Echtes Garba.<br><span class="accent">In Wien.</span></span>
+          <span class="fi fi-ci hero-ci-flag"></span>
         </h1>
 
         <p class="hero-subtitle">
