@@ -431,6 +431,28 @@
       animation: fadeUp 0.7s ease-out 0.1s both;
     }
 
+    .hero-ci-flag {
+      float: right;
+      width: 4.5rem;
+      height: 3rem;
+      border-radius: 8px;
+      margin-left: 1rem;
+      margin-top: 0.15em;
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.45),
+        0 0 0 2px rgba(244, 196, 48, 0.35),
+        0 0 12px rgba(244, 196, 48, 0.15);
+      transition: transform 300ms ease, box-shadow 300ms ease;
+      cursor: default;
+    }
+    .hero-ci-flag:hover {
+      transform: scale(1.06) translateY(-2px);
+      box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.55),
+        0 0 0 2px rgba(244, 196, 48, 0.55),
+        0 0 18px rgba(244, 196, 48, 0.25);
+    }
+
     .hero-title .accent {
       color: var(--primary);
       font-style: italic;
@@ -1729,6 +1751,7 @@
         </div>
 
         <h1 class="hero-title">
+          <span class="fi fi-ci hero-ci-flag"></span>
           <span data-lang-inline="fr" class="active">Le vrai garba.<br><span class="accent">À Vienne.</span></span>
           <span data-lang-inline="en">Real garba.<br><span class="accent">In Vienna.</span></span>
           <span data-lang-inline="de">Echtes Garba.<br><span class="accent">In Wien.</span></span>
