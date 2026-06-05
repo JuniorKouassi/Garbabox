@@ -431,9 +431,11 @@
       animation: fadeUp 0.7s ease-out 0.1s both;
     }
 
+    .hero-title-wrap { display: inline; }
+    .hero-title-text { display: inline; }
+
     .hero-ci-flag {
-      display: inline-block;
-      vertical-align: top;
+      display: none;
       width: 4.5rem;
       height: 3rem;
       border-radius: 8px;
@@ -1445,9 +1447,9 @@
     /* ─── ≥ 1024px : desktop nav visible ──────────────────────────────────── */
     @media (min-width: 1024px) {
       .header-nav { display: flex; }
-      .hero-title { display: flex; align-items: flex-start; gap: 1.2rem; }
-      .hero-title-text { flex: 0 0 auto; }
-      .hero-ci-flag { margin-left: 0; margin-top: 0.1em; flex-shrink: 0; }
+      .hero-title-wrap { display: inline-flex; align-items: flex-start; gap: 1rem; }
+      .hero-title-text { display: inline-block; }
+      .hero-ci-flag { display: inline-block; margin-left: 0; margin-top: 0.12em; flex-shrink: 0; }
     }
 
     /* ─── ≤ 1023px : tablettes ────────────────────────────────────────────── */
@@ -1477,7 +1479,6 @@
     @media (max-width: 767px) {
       .hero { padding: 6rem 1.25rem 2.5rem; }
       .hero-visual { max-width: 480px; }
-      .hero-ci-flag { width: 2.4rem; height: 1.6rem; border-radius: 4px; vertical-align: middle; margin-left: 0.5rem; margin-top: 0; }
       .hero-badge-1 { left: 0.5rem; top: -1.25rem; transform: rotate(-5deg); font-size: 0.75rem; padding: 0.6rem 1rem; }
       .hero-badge-2 { right: 0.5rem; bottom: 0.75rem; transform: rotate(3deg); font-size: 0.75rem; padding: 0.6rem 1rem; }
       .hero-img-wrap { transform: rotate(1deg); }
@@ -1757,12 +1758,14 @@
         </div>
 
         <h1 class="hero-title">
-          <span class="hero-title-text">
-            <span data-lang-inline="fr" class="active">Le vrai garba.<br><span class="accent">À Vienne.</span></span>
-            <span data-lang-inline="en">Real garba.<br><span class="accent">In Vienna.</span></span>
-            <span data-lang-inline="de">Echtes Garba.<br><span class="accent">In Wien.</span></span>
+          <span class="hero-title-wrap">
+            <span class="hero-title-text">
+              <span data-lang-inline="fr" class="active">Le vrai garba.<br><span class="accent">À Vienne.</span></span>
+              <span data-lang-inline="en">Real garba.<br><span class="accent">In Vienna.</span></span>
+              <span data-lang-inline="de">Echtes Garba.<br><span class="accent">In Wien.</span></span>
+            </span>
+            <span class="fi fi-ci hero-ci-flag"></span>
           </span>
-          <span class="fi fi-ci hero-ci-flag"></span>
         </h1>
 
         <p class="hero-subtitle">
